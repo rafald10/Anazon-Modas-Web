@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANAZON | Accesorios</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo"><a href="index.html">ANAZON</a></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="mujeres.html">Mujer</a></li>
+                <li><a href="hombres.html">Hombre</a></li>
+                <li><a href="ninos.html">Niños</a></li>
+                <li><a href="accesorios.html" style="color: var(--color-acento);">Accesorios</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="page-hero">
+        <h1>Accesorios y Belleza</h1>
+    </section>
+
+    <div id="pantalla-seleccion" class="category-selector">
+        <p style="font-size: 1.1rem; color: #666; font-style: italic; margin-bottom: 20px;">Selecciona una categoría</p>
+        <div class="selector-grid">
+            <div class="selector-card" onclick="verListaProductos('maquillaje')">
+                <img src="fotos/maquillaje/a17b429d-cfc5-4ea5-b358-f3878489e2b4.jpg" alt="Maquillaje">
+                <div class="selector-overlay"><h2>Maquillaje</h2></div>
+            </div>
+            
+            <div class="selector-card" onclick="verListaProductos('hogar')">
+                <img src="fotos/hogar/Copia de PHOTO-2025-12-14-19-16-29.jpg" alt="Hogar">
+                <div class="selector-overlay"><h2>Hogar</h2></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="pantalla-productos" class="products-view">
+        <div class="back-btn" onclick="volverAInicio()"><i class='bx bx-left-arrow-alt'></i> Volver a Categorías</div>
+        <div class="section-title"><h2 id="titulo-categoria">Categoría</h2></div>
+
+        <div id="galeria-maquillaje" class="gallery-grid" style="display: none;">
+            <div class="product-card" onclick="verProducto('fotos/maquillaje/05f5f2be-ab79-4499-aa42-8784d0dd3fc8.jpg', 'Bronzing Powder D\'Donna', '1,60€', 'Polvos bronceadores HD Definition para un look natural y cobertura profesional. Larga duración.')">
+                <div class="product-img-box"><img src="fotos/maquillaje/05f5f2be-ab79-4499-aa42-8784d0dd3fc8.jpg"></div>
+                <div class="product-info"><h3 class="product-title">Bronzing Powder D'Donna</h3><p class="product-price">1,60€</p></div>
+            </div>
+
+            <div class="product-card" onclick="verProducto('fotos/maquillaje/45e2be6d-6376-46fc-938d-90a5ed8ef645.jpg', 'Liquid Blush Leticia Well', '2,50€', 'Colorete líquido mate de larga duración (24h). Fácil aplicación y acabado suave.')">
+                <div class="product-img-box"><img src="fotos/maquillaje/45e2be6d-6376-46fc-938d-90a5ed8ef645.jpg"></div>
+                <div class="product-info"><h3 class="product-title">Liquid Blush Mate 24h</h3><p class="product-price">2,50€</p></div>
+            </div>
+
+            <div class="product-card" onclick="verProducto('fotos/maquillaje/24c9ce43-d627-4e38-8503-622fa00b2c31.jpg', 'Corrector Make Cover', '1,80€', 'Corrector líquido de alta cobertura. Camufla imperfecciones y ojeras con acabado natural.')">
+                <div class="product-img-box"><img src="fotos/maquillaje/24c9ce43-d627-4e38-8503-622fa00b2c31.jpg"></div>
+                <div class="product-info"><h3 class="product-title">Corrector Liquid Concealer</h3><p class="product-price">1,80€</p></div>
+            </div>
+
+            <div class="product-card" onclick="verProducto('fotos/maquillaje/3ebf1926-bcee-476b-bc16-e052091ca14c.jpg', 'Paleta Sombras Peerless', '3,50€', 'Paleta de sombras de ojos profesional Easy Paris. Tonos pigmentados ideales para cualquier look.')">
+                <div class="product-img-box"><img src="fotos/maquillaje/3ebf1926-bcee-476b-bc16-e052091ca14c.jpg"></div>
+                <div class="product-info"><h3 class="product-title">Paleta Sombras Eyeshadow</h3><p class="product-price">3,50€</p></div>
+            </div>
+
+            <div class="product-card" onclick="verProducto('fotos/maquillaje/a17b429d-cfc5-4ea5-b358-f3878489e2b4.jpg', 'Set Maquillaje Sirena', '8,95€', 'Kit completo de belleza infantil temática sirena. Incluye sombras con glitter, labiales y colorete.')">
+                <div class="product-img-box"><img src="fotos/maquillaje/a17b429d-cfc5-4ea5-b358-f3878489e2b4.jpg"></div>
+                <div class="product-info"><h3 class="product-title">Beauty Set Sirena</h3><p class="product-price">8,95€</p></div>
+            </div>
+
+            <div class="product-card" onclick="verProducto('fotos/maquillaje/da2fed0a-4c49-4aa0-a5be-c7e5663c5c4e.jpg', 'Crema de Manos Animalitos', '1,50€', 'Crema de manos hidratación intensa (30ml). Variedades: Vainilla, Chocolate, Aguacate, Aloe Vera.')">
+                <div class="product-img-box"><img src="fotos/maquillaje/da2fed0a-4c49-4aa0-a5be-c7e5663c5c4e.jpg"></div>
+                <div class="product-info"><h3 class="product-title">Crema Manos Hidratante</h3><p class="product-price">1,50€</p></div>
+            </div>
+
+            <div class="product-card" onclick="verProducto('fotos/maquillaje/62920603-5ede-4ec2-ad85-18da26f338c7.jpg', 'Colección Perfumes Yara', '12,95€', 'Set exclusivo My Yara Collection de Lattafa. Fragancias árabes dulces y duraderas.')">
+                <div class="product-img-box"><img src="fotos/maquillaje/62920603-5ede-4ec2-ad85-18da26f338c7.jpg"></div>
+                <div class="product-info"><h3 class="product-title">Set Perfumes Yara</h3><p class="product-price">12,95€</p></div>
+            </div>
+
+             <div class="product-card" onclick="verProducto('fotos/maquillaje/52ff67f1-dde9-4e45-9d78-2315b252828d.jpg', 'Colección Yani Prady', '9,95€', 'Set de Eau de Toilette Yani Collection. Variedades: Tatus, Mua, Classic, Sweet.')">
+                <div class="product-img-box"><img src="fotos/maquillaje/52ff67f1-dde9-4e45-9d78-2315b252828d.jpg"></div>
+                <div class="product-info"><h3 class="product-title">Set Perfumes Yani</h3><p class="product-price">9,95€</p></div>
+            </div>
+
+            <div class="product-card" onclick="verProducto('fotos/maquillaje/84eb6db8-19d9-420f-b1da-6abc1a834aa2.jpg', 'Set Cuidado Cabello', '4,50€', 'Kit Beauty & Wellness. Incluye cepillo esqueleto, peine, pinzas y coletero satinado.')">
+                <div class="product-img-box"><img src="fotos/maquillaje/84eb6db8-19d9-420f-b1da-6abc1a834aa2.jpg"></div>
+                <div class="product-info"><h3 class="product-title">Set Cuidado Cabello</h3><p class="product-price">4,50€</p></div>
+            </div>
+
+            <div class="product-card" onclick="verProducto('fotos/maquillaje/9f49275b-311e-47c2-8114-5082d9ad59ca.jpg', 'Polvo Compacto My Blush', '1,95€', 'Colorete compacto Leticia Well. Textura suave para un acabado perfecto.')">
+                <div class="product-img-box"><img src="fotos/maquillaje/9f49275b-311e-47c2-8114-5082d9ad59ca.jpg"></div>
+                <div class="product-info"><h3 class="product-title">Polvo Compacto My Blush</h3><p class="product-price">1,95€</p></div>
+            </div>
+        </div>
+
+        <div id="galeria-hogar" class="gallery-grid" style="display: none;">
+             
+             <div class="product-card" onclick="verProducto('fotos/hogar/Copia de PHOTO-2025-12-14-19-19-03.jpg', 'Falda Camilla BALI', '48,00€', 'Falda de mesa camilla modelo Bali de Mapuca Textil. Tejido chenilla de 8 fuelles. Disponible en Gris, Choco, Camel y más.')">
+                <div class="product-img-box"><img src="fotos/hogar/Copia de PHOTO-2025-12-14-19-19-03.jpg" alt="Falda Camilla"></div>
+                <div class="product-info"><h3 class="product-title">Falda Camilla BALI</h3><p class="product-price">48,00€</p></div>
+            </div>
+
+            <div class="product-card" onclick="verProducto('fotos/hogar/Copia de PHOTO-2025-12-14-19-16-29.jpg', 'Edredón Acolchado Diana', '28,00€', 'Colcha edredón con tacto extra suave. Diseño elegante con relieve, modelo Diana de Roomers. Color Rosa.')">
+                <div class="product-img-box"><img src="fotos/hogar/Copia de PHOTO-2025-12-14-19-16-29.jpg" alt="Edredón"></div>
+                <div class="product-info"><h3 class="product-title">Edredón Acolchado Diana</h3><p class="product-price">28,00€</p></div>
+            </div>
+
+            <div class="product-card" onclick="verProducto('fotos/hogar/Copia de PHOTO-2025-12-14-19-15-55.jpg', 'Juego Sábanas Lunares', '19,95€', 'Juego de sábanas completo de Roomers Bed Linen. Diseño moderno de lunares gris y blanco. Tejido resistente.')">
+                <div class="product-img-box"><img src="fotos/hogar/Copia de PHOTO-2025-12-14-19-15-55.jpg" alt="Sábanas"></div>
+                <div class="product-info"><h3 class="product-title">Juego Sábanas Lunares</h3><p class="product-price">19,95€</p></div>
+            </div>
+
+            <div class="product-card" onclick="verProducto('fotos/hogar/Copia de PHOTO-2025-12-14-19-20-13.jpg', 'Protector Impermeable', '12,50€', 'Protector de colchón de rizo 100% impermeable con barrera antiácaros. Marca Zorba. Base PVC inyectado.')">
+                <div class="product-img-box"><img src="fotos/hogar/Copia de PHOTO-2025-12-14-19-20-13.jpg" alt="Protector"></div>
+                <div class="product-info"><h3 class="product-title">Protector Impermeable</h3><p class="product-price">12,50€</p></div>
+            </div>
+
+            <div class="product-card" onclick="verProducto('fotos/hogar/Copia de PHOTO-2025-12-14-19-19-29.jpg', 'Juego Baño 3 Piezas', '22,50€', 'Set de 3 toallas 100% algodón modelo Simon de Roomers. Elegante cenefa de greca en color Taupe.')">
+                <div class="product-img-box"><img src="fotos/hogar/Copia de PHOTO-2025-12-14-19-19-29.jpg" alt="Toallas"></div>
+                <div class="product-info"><h3 class="product-title">Juego Baño 3 Piezas</h3><p class="product-price">22,50€</p></div>
+            </div>
+
+            <div class="product-card" onclick="verProducto('fotos/hogar/Copia de PHOTO-2025-12-14-19-17-00.jpg', 'Cojín de Lactancia', '15,00€', 'Cojín de lactancia ergonómico modelo Corazones Azul. Ideal para el confort de la mamá y el bebé.')">
+                <div class="product-img-box"><img src="fotos/hogar/Copia de PHOTO-2025-12-14-19-17-00.jpg" alt="Cojín"></div>
+                <div class="product-info"><h3 class="product-title">Cojín de Lactancia</h3><p class="product-price">15,00€</p></div>
+            </div>
+            
+        </div>
+    </div>
+
+    <div id="pantalla-detalle" class="single-product-view">
+        <div class="back-btn" onclick="volverALista()"><i class='bx bx-left-arrow-alt'></i> Volver a Productos</div>
+        <div class="product-detail-container">
+            <div class="detail-image" onclick="abrirLightbox()"><img id="detail-img" src="" alt="Producto"></div>
+            <div class="detail-info">
+                <h1 id="detail-title" class="detail-title">Titulo</h1>
+                <p id="detail-price" class="detail-price">0.00€</p>
+                <div class="detail-desc" style="margin-bottom: 30px; line-height: 1.6; color: #555;">
+                    <p id="detail-desc-text">Descripción...</p>
+                </div>
+                <a id="whatsapp-btn" href="#" target="_blank" class="btn-whatsapp-big">
+                    <i class='bx bxl-whatsapp'></i> Pedir por WhatsApp
+                </a>
+                <p style="font-size: 0.8rem; color: #888; margin-top: 15px; font-style: italic;">
+                    *Al hacer clic, se abrirá WhatsApp con los datos del producto listos para enviar.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div id="lightbox" class="lightbox" onclick="cerrarLightbox()">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightbox-img" src="" alt="Zoom">
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section footer-brand">
+                <h3>Sobre ANAZON</h3>
+                <p>Moda atemporal nacida en el corazón de Sevilla. Seleccionamos prendas que combinan elegancia y tendencia para que te sientas única en cada ocasión.</p>
+                <div class="footer-socials">
+                    <a href="https://www.instagram.com/ana_zon_" target="_blank"><i class='bx bxl-instagram'></i></a>
+                </div>
+            </div>
+            <div class="footer-section footer-contact">
+                <h3>Contacto</h3>
+                <p><i class='bx bx-map'></i> C. Maestro Antonio Montero 2,<br>41650 El Saucejo, Sevilla</p>
+                <p><i class='bx bx-phone'></i> <a href="tel:+34628890624">628 890 624</a></p>
+                <p><i class='bx bx-envelope'></i> <a href="mailto:hola@anazon.es">hola@anazon.es</a></p>
+            </div>
+            <div class="footer-section footer-links">
+                <h3>Información Legal</h3>
+                <ul>
+                    <li><a href="aviso_legal.html">Aviso Legal</a></li>
+                    <li><a href="politica_privacidad.html">Política de Privacidad</a></li>
+                    <li><a href="politica_cookies.html">Política de Cookies</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2025 ANAZON. Todos los derechos reservados.</span>
+            <span>Diseñado por <a href="https:/ecentia.es">Ecentia</a> en Sevilla</span>
+        </div>
+    </footer>
+
+    <div id="cookie-banner">
+        <div class="cookie-content">
+            <div class="cookie-text">
+                <p><strong>Valoramos tu privacidad.</strong> Utilizamos cookies propias y de terceros para analizar nuestros servicios. Puedes aceptar o rechazar su uso.</p>
+                <p style="font-size: 0.8rem; margin-top: 5px;"><a href="politica_cookies.html" style="color: var(--color-acento); text-decoration: underline;">Más información</a>.</p>
+            </div>
+            <div class="cookie-buttons">
+                <button class="btn-cookie-deny" onclick="gestionCookies('rechazar')">Rechazar</button>
+                <button class="btn-cookie-accept" onclick="gestionCookies('aceptar')">Aceptar Todo</button>
+            </div>
+        </div>
+    </div>
+
+   <script src="scripts.js"></script>
+</body>
+</html>

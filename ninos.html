@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANAZON | Niños y Bebés</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo"><a href="index.html">ANAZON</a></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="mujeres.html">Mujer</a></li>
+                <li><a href="hombres.html">Hombre</a></li>
+                <li><a href="ninos.html" style="color: var(--color-acento);">Niños</a></li>
+                <li><a href="accesorios.html">Accesorios</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="page-hero">
+        <h1>Moda Infantil</h1>
+    </section>
+
+    <div id="pantalla-seleccion" class="category-selector">
+        <p style="font-size: 1.1rem; color: #666; font-style: italic; margin-bottom: 20px;">Selecciona una categoría</p>
+        <div class="selector-grid">
+            
+            <div class="selector-card" onclick="verListaProductos('bebe')">
+                <img src="fotos/niño/bebe/PHOTO-2025-12-14-19-21-05.jpg" alt="Ropa de Bebé">
+                <div class="selector-overlay"><h2>Bebé</h2></div>
+            </div>
+            
+            <div class="selector-card" onclick="verListaProductos('nino')">
+                <img src="https://images.unsplash.com/photo-1503919545889-aef636e10ad4?q=80&w=1000&auto=format&fit=crop" alt="Ropa de Niño">
+                <div class="selector-overlay"><h2>Niño/a</h2></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="pantalla-productos" class="products-view">
+        <div class="back-btn" onclick="volverAInicio()"><i class='bx bx-left-arrow-alt'></i> Volver a Categorías</div>
+        <div class="section-title"><h2 id="titulo-categoria">Categoría</h2></div>
+
+        <div id="galeria-bebe" class="gallery-grid" style="display: none;">
+            
+            <div class="product-card" onclick="verProducto('fotos/niño/bebe/PHOTO-2025-12-14-19-21-05.jpg', 'Conjunto Bebé Punto', '18,50€', 'Conjunto de dos piezas en punto suave, ideal para la piel delicada del bebé. Diseño clásico y cómodo.')">
+                <div class="product-img-box"><img src="fotos/niño/bebe/PHOTO-2025-12-14-19-21-05.jpg" alt="Bebé 1"></div>
+                <div class="product-info"><h3 class="product-title">Conjunto Bebé Punto</h3><p class="product-price">18,50€</p></div>
+            </div>
+
+            <div class="product-card" onclick="verProducto('fotos/niño/bebe/PHOTO-2025-12-14-19-21-59.jpg', 'Pelele Estampado', '15,95€', 'Pelele de algodón con estampado divertido. Cierre con botones a presión para facilitar el cambio.')">
+                <div class="product-img-box"><img src="fotos/niño/bebe/PHOTO-2025-12-14-19-21-59.jpg" alt="Bebé 2"></div>
+                <div class="product-info"><h3 class="product-title">Pelele Estampado</h3><p class="product-price">15,95€</p></div>
+            </div>
+
+            <div class="product-card" onclick="verProducto('fotos/niño/bebe/PHOTO-2025-12-14-19-22-53.jpg', 'Vestido con Pololo', '22,00€', 'Precioso vestido con pololo a juego. Detalles bordados y tejido transpirable para cualquier ocasión.')">
+                <div class="product-img-box"><img src="fotos/niño/bebe/PHOTO-2025-12-14-19-22-53.jpg" alt="Bebé 3"></div>
+                <div class="product-info"><h3 class="product-title">Vestido con Pololo</h3><p class="product-price">22,00€</p></div>
+            </div>
+
+            <div class="product-card" onclick="verProducto('fotos/niño/bebe/PHOTO-2025-12-14-19-24-16.jpg', 'Conjunto Paseo Cálido', '24,50€', 'Set completo para paseo, muy calentito y suave. Incluye chaqueta y pantalón a juego.')">
+                <div class="product-img-box"><img src="fotos/niño/bebe/PHOTO-2025-12-14-19-24-16.jpg" alt="Bebé 4"></div>
+                <div class="product-info"><h3 class="product-title">Conjunto Paseo Cálido</h3><p class="product-price">24,50€</p></div>
+            </div>
+
+        </div>
+
+        <div id="galeria-nino" style="display: none; text-align: center; padding: 40px 20px;">
+             <i class='bx bx-happy-beaming' style="font-size: 5rem; color: #ddd; margin-bottom: 25px;"></i>
+             <h3 style="font-family: var(--fuente-titulos); font-size: 1.8rem; margin-bottom: 20px; text-transform: uppercase;">Próximamente</h3>
+             <p style="color: #666; font-size: 1.1rem; max-width: 600px; margin: 0 auto; line-height: 1.6;">
+                Estamos preparando la nueva colección de niño y niña (tallas 2 a 12 años). <br>
+                ¡Muy pronto podrás ver todos los modelos aquí!
+            </p>
+        </div>
+
+    </div>
+
+    <div id="pantalla-detalle" class="single-product-view">
+        <div class="back-btn" onclick="volverALista()"><i class='bx bx-left-arrow-alt'></i> Volver a Productos</div>
+        <div class="product-detail-container">
+            <div class="detail-image" onclick="abrirLightbox()"><img id="detail-img" src="" alt="Producto"></div>
+            <div class="detail-info">
+                <h1 id="detail-title" class="detail-title">Titulo</h1>
+                <p id="detail-price" class="detail-price">0.00€</p>
+                <div class="detail-desc" style="margin-bottom: 30px; line-height: 1.6; color: #555;">
+                    <p id="detail-desc-text">Descripción...</p>
+                </div>
+                <a id="whatsapp-btn" href="#" target="_blank" class="btn-whatsapp-big">
+                    <i class='bx bxl-whatsapp'></i> Pedir por WhatsApp
+                </a>
+                <p style="font-size: 0.8rem; color: #888; margin-top: 15px; font-style: italic;">
+                    *Al hacer clic, se abrirá WhatsApp con los datos del producto listos para enviar.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div id="lightbox" class="lightbox" onclick="cerrarLightbox()">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightbox-img" src="" alt="Zoom">
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section footer-brand">
+                <h3>Sobre ANAZON</h3>
+                <p>Moda atemporal nacida en el corazón de Sevilla. Seleccionamos prendas que combinan elegancia y tendencia.</p>
+                <div class="footer-socials">
+                    <a href="https://www.instagram.com/ana_zon_" target="_blank"><i class='bx bxl-instagram'></i></a>
+                </div>
+            </div>
+            <div class="footer-section footer-contact">
+                <h3>Contacto</h3>
+                <p><i class='bx bx-map'></i> C. Maestro Antonio Montero 2,<br>41650 El Saucejo, Sevilla</p>
+                <p><i class='bx bx-phone'></i> <a href="tel:+34628890624">628 890 624</a></p>
+                <p><i class='bx bx-envelope'></i> <a href="mailto:hola@anazon.es">hola@anazon.es</a></p>
+            </div>
+            <div class="footer-section footer-links">
+                <h3>Información Legal</h3>
+                <ul>
+                    <li><a href="aviso_legal.html">Aviso Legal</a></li>
+                    <li><a href="politica_privacidad.html">Política de Privacidad</a></li>
+                    <li><a href="politica_cookies.html">Política de Cookies</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2025 ANAZON. Todos los derechos reservados.</span>
+            <span>Diseñado por <a href="https:/ecentia.es">Ecentia</a> en Sevilla</span>
+        </div>
+    </footer>
+
+    <div id="cookie-banner">
+        <div class="cookie-content">
+            <div class="cookie-text">
+                <p><strong>Valoramos tu privacidad.</strong> Utilizamos cookies propias y de terceros para analizar nuestros servicios. Puedes aceptar o rechazar su uso.</p>
+                <p style="font-size: 0.8rem; margin-top: 5px;"><a href="politica_cookies.html" style="color: var(--color-acento); text-decoration: underline;">Más información</a>.</p>
+            </div>
+            <div class="cookie-buttons">
+                <button class="btn-cookie-deny" onclick="gestionCookies('rechazar')">Rechazar</button>
+                <button class="btn-cookie-accept" onclick="gestionCookies('aceptar')">Aceptar Todo</button>
+            </div>
+        </div>
+    </div>
+
+   <script src="scripts.js"></script>
+</body>
+</html>

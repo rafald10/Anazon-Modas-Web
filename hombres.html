@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANAZON | Hombre</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo"><a href="index.html">ANAZON</a></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="mujeres.html">Mujer</a></li>
+                <li><a href="hombres.html" style="color: var(--color-acento);">Hombre</a></li> <li><a href="ninos.html">Niños</a></li>
+                <li><a href="accesorios.html">Accesorios</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="page-hero">
+        <h1>Colección Hombre</h1>
+    </section>
+
+    <div class="section-container" style="text-align: center; padding: 80px 20px; min-height: 400px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+        <i class='bx bx-male' style="font-size: 5rem; color: #ddd; margin-bottom: 25px;"></i>
+        <h2 style="font-family: var(--fuente-titulos); font-size: 2rem; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px;">Próximamente</h2>
+        <p style="color: #666; font-size: 1.1rem; max-width: 600px; line-height: 1.6;">
+            Estamos seleccionando las prendas más elegantes y actuales para nuestra nueva colección de hombre. <br>
+            Muy pronto estarán disponibles en la web.
+        </p>
+        <a href="index.html" class="back-btn" style="margin-top: 40px; text-decoration: none;">
+            <i class='bx bx-left-arrow-alt'></i> Volver al Inicio
+        </a>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section footer-brand">
+                <h3>Sobre ANAZON</h3>
+                <p>Moda atemporal nacida en el corazón de Sevilla. Seleccionamos prendas que combinan elegancia y tendencia.</p>
+                <div class="footer-socials">
+                    <a href="https://www.instagram.com/ana_zon_" target="_blank"><i class='bx bxl-instagram'></i></a>
+                </div>
+            </div>
+            <div class="footer-section footer-contact">
+                <h3>Contacto</h3>
+                <p><i class='bx bx-map'></i> C. Maestro Antonio Montero 2,<br>41650 El Saucejo, Sevilla</p>
+                <p><i class='bx bx-phone'></i> <a href="tel:+34628890624">628 890 624</a></p>
+                <p><i class='bx bx-envelope'></i> <a href="mailto:hola@anazon.es">hola@anazon.es</a></p>
+            </div>
+            <div class="footer-section footer-links">
+                <h3>Información Legal</h3>
+                <ul>
+                    <li><a href="aviso_legal.html">Aviso Legal</a></li>
+                    <li><a href="politica_privacidad.html">Política de Privacidad</a></li>
+                    <li><a href="politica_cookies.html">Política de Cookies</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2025 ANAZON. Todos los derechos reservados.</span>
+            <span>Diseñado por <a href="https:/ecentia.es">Ecentia</a> en Sevilla</span>
+        </div>
+    </footer>
+
+    <div id="cookie-banner">
+        <div class="cookie-content">
+            <div class="cookie-text">
+                <p><strong>Valoramos tu privacidad.</strong> Utilizamos cookies propias y de terceros para analizar nuestros servicios. Puedes aceptar o rechazar su uso.</p>
+                <p style="font-size: 0.8rem; margin-top: 5px;"><a href="politica_cookies.html" style="color: var(--color-acento); text-decoration: underline;">Más información</a>.</p>
+            </div>
+            <div class="cookie-buttons">
+                <button class="btn-cookie-deny" onclick="gestionCookies('rechazar')">Rechazar</button>
+                <button class="btn-cookie-accept" onclick="gestionCookies('aceptar')">Aceptar Todo</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
