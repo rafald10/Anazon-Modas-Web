@@ -199,3 +199,26 @@ document.addEventListener("DOMContentLoaded", function() {
 
 /* --- (MANTÉN AQUÍ TUS FUNCIONES ANTIGUAS: verListaProductos, verProducto, etc.) --- */
 // ... tus funciones de verListaProductos, verProducto, etc. siguen igual ...
+
+/* --- ESTILOS MENÚ HAMBURGUESA (Móvil) --- */
+
+document.addEventListener("DOMContentLoaded", function() {
+    // ... tus otros códigos de cookies o tilt ...
+
+    /* --- LÓGICA DEL MENÚ MÓVIL --- */
+    const hamburger = document.querySelector(".hamburger");
+    const navMenu = document.querySelector(".nav-links");
+
+    if (hamburger && navMenu) {
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("active");
+            navMenu.classList.toggle("active");
+        });
+
+        // Opcional: Cerrar el menú al tocar un enlace
+        document.querySelectorAll(".nav-links li a").forEach(n => n.addEventListener("click", () => {
+            hamburger.classList.remove("active");
+            navMenu.classList.remove("active");
+        }));
+    }
+});
