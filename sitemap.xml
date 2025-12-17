@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+   <url>
+      <loc>https://anazonmoda.es/</loc>
+      <lastmod>2025-12-17</lastmod>
+      <changefreq>daily</changefreq>
+      <priority>1.00</priority>
+   </url>
+
+   <url>
+      <loc>https://anazonmoda.es/mujeres.html</loc>
+      <lastmod>2025-12-17</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.80</priority>
+   </url>
+
+   <url>
+      <loc>https://anazonmoda.es/hombres.html</loc>
+      <lastmod>2025-12-17</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.80</priority>
+   </url>
+
+   <url>
+      <loc>https://anazonmoda.es/ninos.html</loc>
+      <lastmod>2025-12-17</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.80</priority>
+   </url>
+
+   <url>
+      <loc>https://anazonmoda.es/accesorios.html</loc>
+      <lastmod>2025-12-17</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.80</priority>
+   </url>
+
+   <url>
+      <loc>https://anazonmoda.es/aviso_legal.html</loc>
+      <changefreq>yearly</changefreq>
+      <priority>0.30</priority>
+   </url>
+
+   <url>
+      <loc>https://anazonmoda.es/politica_privacidad.html</loc>
+      <changefreq>yearly</changefreq>
+      <priority>0.30</priority>
+   </url>
+
+   <url>
+      <loc>https://anazonmoda.es/politica_cookies.html</loc>
+      <changefreq>yearly</changefreq>
+      <priority>0.30</priority>
+   </url>
+
+</urlset>
