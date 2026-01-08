@@ -1,18 +1,44 @@
 document.addEventListener("DOMContentLoaded", function() {
 
     /* =========================================
-       0. CURSOR MÁGICO (PREMIUM)
+       0. CURSOR MÁGICO DORADO (PREMIUM)
        ========================================= */
-    // Solo lo activamos en pantallas grandes para no molestar en táctil
     if (window.matchMedia("(min-width: 1024px)").matches) {
         
-        // Crear elementos del cursor
+        // --- PUNTO CENTRAL (DORADO) ---
         const cursorDot = document.createElement('div');
         cursorDot.classList.add('cursor-dot');
+        Object.assign(cursorDot.style, {
+            width: '8px',
+            height: '8px',
+            backgroundColor: '#D4AF37', // <--- COLOR DORADO
+            borderRadius: '50%',
+            position: 'fixed',
+            top: '0',
+            left: '0',
+            pointerEvents: 'none',
+            zIndex: '9999',
+            transform: 'translate(-50%, -50%)',
+            boxShadow: '0 0 5px rgba(212, 175, 55, 0.5)' // Un brillo suave
+        });
         document.body.appendChild(cursorDot);
 
+        // --- CÍRCULO EXTERNO (DORADO TRANSPARENTE) ---
         const cursorOutline = document.createElement('div');
         cursorOutline.classList.add('cursor-outline');
+        Object.assign(cursorOutline.style, {
+            width: '40px',
+            height: '40px',
+            border: '2px solid rgba(212, 175, 55, 0.5)', // <--- BORDE DORADO SUAVE
+            borderRadius: '50%',
+            position: 'fixed',
+            top: '0',
+            left: '0',
+            pointerEvents: 'none',
+            zIndex: '9999',
+            transform: 'translate(-50%, -50%)',
+            transition: 'left 0.15s ease-out, top 0.15s ease-out'
+        });
         document.body.appendChild(cursorOutline);
 
         // Movimiento
@@ -20,25 +46,25 @@ document.addEventListener("DOMContentLoaded", function() {
             const posX = e.clientX;
             const posY = e.clientY;
 
-            // El punto se mueve instantáneo
             cursorDot.style.left = `${posX}px`;
             cursorDot.style.top = `${posY}px`;
 
-            // El círculo se mueve con un poco de animación fluida
-            cursorOutline.animate({
-                left: `${posX}px`,
-                top: `${posY}px`
-            }, { duration: 500, fill: "forwards" });
+            cursorOutline.style.left = `${posX}px`;
+            cursorOutline.style.top = `${posY}px`;
         });
 
-        // Detectar hover en elementos clickeables
-        const clickables = document.querySelectorAll('a, button, .product-card, .category-card, .btn-call, .hamburger, input, .selector-card');
+        // Efecto al pasar por encima de cosas (se hace más grande y dorado claro)
+        const clickables = document.querySelectorAll('a, button, .product-card, .category-card, input, .selector-card');
         clickables.forEach(el => {
             el.addEventListener('mouseenter', () => {
-                document.body.classList.add('hovering');
+                cursorOutline.style.transform = 'translate(-50%, -50%) scale(1.5)';
+                cursorOutline.style.backgroundColor = 'rgba(212, 175, 55, 0.1)'; // Fondo dorado muy sutil
+                cursorOutline.style.borderColor = 'transparent';
             });
             el.addEventListener('mouseleave', () => {
-                document.body.classList.remove('hovering');
+                cursorOutline.style.transform = 'translate(-50%, -50%) scale(1)';
+                cursorOutline.style.backgroundColor = 'transparent';
+                cursorOutline.style.borderColor = 'rgba(212, 175, 55, 0.5)';
             });
         });
     }
@@ -56,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     /* =========================================
-       2. MENÚ MÓVIL (HAMBURGUESA)
+       2. MENÚ MÓVIL
        ========================================= */
     const hamburger = document.querySelector(".hamburger");
     const navMenu = document.querySelector(".nav-links");
@@ -66,7 +92,6 @@ document.addEventListener("DOMContentLoaded", function() {
             hamburger.classList.toggle("active");
             navMenu.classList.toggle("active");
         });
-        // Cerrar al hacer click en un enlace
         document.querySelectorAll(".nav-links li a").forEach(n => n.addEventListener("click", () => {
             hamburger.classList.remove("active");
             navMenu.classList.remove("active");
@@ -74,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     /* =========================================
-       3. NAVBAR SCROLL EFECTO
+       3. NAVBAR SCROLL
        ========================================= */
     const header = document.querySelector('header');
     if(header) {
@@ -83,12 +108,12 @@ document.addEventListener("DOMContentLoaded", function() {
             else header.classList.remove('scrolled');
         });
     }
-
 });
 
 /* =========================================
    FUNCIONES GLOBALES
    ========================================= */
+
 function gestionCookies(accion) {
     const banner = document.getElementById('cookie-banner');
     if (accion === 'aceptar') {
@@ -114,4 +139,61 @@ function activarCookiesDeTerceros() {
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', G_ANALYTICS_ID);
+}
+
+function verListaProductos(categoria) {
+    document.getElementById('pantalla-seleccion').style.display = 'none';
+    document.getElementById('pantalla-productos').style.display = 'block';
+
+    const galerias = document.querySelectorAll('.gallery-grid, #galeria-nino');
+    galerias.forEach(g => g.style.display = 'none');
+
+    const galeriaActiva = document.getElementById('galeria-' + categoria);
+    if (galeriaActiva) {
+        if (galeriaActiva.classList.contains('gallery-grid')) {
+            galeriaActiva.style.display = 'grid';
+        } else {
+            galeriaActiva.style.display = 'block';
+        }
+    }
+
+    const titulo = document.getElementById('titulo-categoria');
+    if (titulo) {
+        titulo.innerText = categoria.charAt(0).toUpperCase() + categoria.slice(1);
+    }
+}
+
+function volverAInicio() {
+    document.getElementById('pantalla-productos').style.display = 'none';
+    document.getElementById('pantalla-seleccion').style.display = 'block';
+}
+
+function verProducto(imagen, titulo, precio, descripcion) {
+    document.getElementById('pantalla-productos').style.display = 'none';
+    document.getElementById('pantalla-detalle').style.display = 'block';
+
+    document.getElementById('detail-img').src = imagen;
+    document.getElementById('lightbox-img').src = imagen;
+    document.getElementById('detail-title').innerText = titulo;
+    document.getElementById('detail-price').innerText = precio;
+    document.getElementById('detail-desc-text').innerText = descripcion;
+
+    const telefono = "34628890624";
+    const mensaje = `Hola ANAZON, me interesa: ${titulo} (${precio}).`;
+    document.getElementById('whatsapp-btn').href = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
+    
+    window.scrollTo(0, 0);
+}
+
+function volverALista() {
+    document.getElementById('pantalla-detalle').style.display = 'none';
+    document.getElementById('pantalla-productos').style.display = 'block';
+}
+
+function abrirLightbox() {
+    document.getElementById('lightbox').style.display = 'flex';
+}
+
+function cerrarLightbox() {
+    document.getElementById('lightbox').style.display = 'none';
 }
