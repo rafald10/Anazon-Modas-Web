@@ -29,10 +29,10 @@
                 <li><a href="accesorios.html">Accesorios</a></li>
             </ul>
             <div class="hamburger">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-    </div>
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
         </nav>
     </header>
 
@@ -43,11 +43,10 @@
     <div id="pantalla-seleccion" class="category-selector">
         <p style="font-size: 1.1rem; color: #666; font-style: italic; margin-bottom: 20px;">Selecciona una categoría</p>
         <div class="selector-grid">
-            
-         <div class="selector-card" onclick="verListaProductos('bebe')">
-    <img src="bebe.webp" alt="Ropa de Bebé">
-    <div class="selector-overlay"><h2>Bebé</h2></div>
-</div>
+            <div class="selector-card" onclick="verListaProductos('bebe')">
+                <img src="bebe.webp" alt="Ropa de Bebé">
+                <div class="selector-overlay"><h2>Bebé</h2></div>
+            </div>
             
             <div class="selector-card" onclick="verListaProductos('nino')">
                 <img src="https://images.unsplash.com/photo-1503919545889-aef636e10ad4?q=80&w=1000&auto=format&fit=crop" alt="Ropa de Niño">
@@ -57,11 +56,13 @@
     </div>
 
     <div id="pantalla-productos" class="products-view">
-        <div class="back-btn" onclick="volverAInicio()"><i class='bx bx-left-arrow-alt'></i> Volver a Categorías</div>
+        <div style="display: flex; justify-content: flex-start; width: 100%; text-align: left;">
+            <div class="back-btn" onclick="volverAInicio()" style="margin-left: 0;"><i class='bx bx-left-arrow-alt'></i> Volver a Categorías</div>
+        </div>
+
         <div class="section-title"><h2 id="titulo-categoria">Categoría</h2></div>
 
         <div id="galeria-bebe" class="gallery-grid" style="display: none;">
-            
             <div class="product-card" onclick="verProducto('fotos/niño/bebe/PHOTO-2025-12-14-19-21-05.jpg', 'Conjunto Bebé Punto', '18,50€', 'Conjunto de dos piezas en punto suave, ideal para la piel delicada del bebé. Diseño clásico y cómodo.')">
                 <div class="product-img-box"><img src="fotos/niño/bebe/PHOTO-2025-12-14-19-21-05.jpg" alt="Bebé 1"></div>
                 <div class="product-info"><h3 class="product-title">Conjunto Bebé Punto</h3><p class="product-price">18,50€</p></div>
@@ -81,7 +82,6 @@
                 <div class="product-img-box"><img src="fotos/niño/bebe/PHOTO-2025-12-14-19-24-16.jpg" alt="Bebé 4"></div>
                 <div class="product-info"><h3 class="product-title">Conjunto Paseo Cálido</h3><p class="product-price">24,50€</p></div>
             </div>
-
         </div>
 
         <div id="galeria-nino" style="display: none; text-align: center; padding: 40px 20px;">
@@ -92,7 +92,6 @@
                 ¡Muy pronto podrás ver todos los modelos aquí!
             </p>
         </div>
-
     </div>
 
     <div id="pantalla-detalle" class="single-product-view">

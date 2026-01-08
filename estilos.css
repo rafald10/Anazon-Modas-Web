@@ -13,117 +13,110 @@
 
 /* OCULTAMOS EL CURSOR POR DEFECTO PARA USAR EL NUESTRO */
 body, a, button, input {
-    cursor: none !important;
+ /*   cursor: none !important;*/
 }
 
-/* --- ESTILOS DEL CURSOR MÁGICO (NUEVO) --- */
-.cursor-dot,
-.cursor-outline {
-    position: fixed;
-    top: 0;
-    left: 0;
+/* --- ESTILOS DEL CURSOR MÁGICO --- */
+.cursor-dot, .cursor-outline {
+    position: fixed; top: 0; left: 0;
     transform: translate(-50%, -50%);
-    border-radius: 50%;
-    z-index: 9999;
-    pointer-events: none; /* Para que no bloquee los clics */
+    border-radius: 50%; z-index: 9999; pointer-events: none;
 }
-
-/* El punto central */
-.cursor-dot {
-    width: 8px;
-    height: 8px;
-    background-color: var(--color-acento);
-}
-
-/* El círculo que persigue */
+.cursor-dot { width: 8px; height: 8px; background-color: var(--color-acento); }
 .cursor-outline {
-    width: 40px;
-    height: 40px;
-    border: 1px solid var(--color-acento);
+    width: 40px; height: 40px; border: 1px solid var(--color-acento);
     transition: width 0.2s, height 0.2s, background-color 0.2s;
 }
-
-/* Estado HOVER (cuando tocas un link) */
 body.hovering .cursor-outline {
-    width: 60px;
-    height: 60px;
-    background-color: rgba(197, 160, 89, 0.1); /* Fondo dorado muy sutil */
-    border-color: transparent;
+    width: 60px; height: 60px; background-color: rgba(197, 160, 89, 0.1); border-color: transparent;
 }
-body.hovering .cursor-dot {
-    transform: translate(-50%, -50%) scale(1.5);
-}
+body.hovering .cursor-dot { transform: translate(-50%, -50%) scale(1.5); }
 
-/* --- SCROLLBAR "LINGOTE DE ORO" (MODERNO) --- */
-::-webkit-scrollbar {
-    width: 10px;
-}
-::-webkit-scrollbar-track {
-    background: #0f0f0f; /* Fondo casi negro */
-}
+/* --- SCROLLBAR --- */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #0f0f0f; }
 ::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, #c5a059, #aa8539, #c5a059); /* Degradado dorado */
-    border-radius: 5px; /* Redondeado */
-    border: 2px solid #0f0f0f; /* Borde del mismo color que el track para efecto flotante */
+    background: linear-gradient(180deg, #c5a059, #aa8539, #c5a059);
+    border-radius: 5px; border: 2px solid #0f0f0f;
 }
-::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(180deg, #e6c87f, #c5a059); /* Más brillo al tocar */
-}
+::-webkit-scrollbar-thumb:hover { background: linear-gradient(180deg, #e6c87f, #c5a059); }
 
-/* --- RESTO DE ESTILOS (TU WEB) --- */
+/* --- BODY Y GENERALES --- */
 body { 
     font-family: var(--fuente-texto); 
     color: var(--color-negro); 
     background-color: var(--color-fondo-suave); 
-    display: flex; 
-    flex-direction: column; 
-    min-height: 100vh; 
-    overflow-x: hidden; 
+    display: flex; flex-direction: column; 
+    min-height: 100vh; overflow-x: hidden; 
 }
-
 a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
 ul { list-style: none; }
 img { width: 100%; display: block; }
 
+/* --- HEADER CENTRADO --- */
 header {
     position: fixed; top: 0; left: 0; width: 100%;
     background: rgba(255, 255, 255, 0.98);
     box-shadow: 0 1px 5px rgba(0,0,0,0.05);
-    z-index: 1000; padding: 20px 0;
+    z-index: 1000; padding: 15px 0;
     transition: all 0.4s ease;
 }
 header.scrolled {
-    padding: 10px 0;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    padding: 10px 0; background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px); box-shadow: 0 4px 20px rgba(0,0,0,0.08);
 }
 
 .navbar {
-    max-width: 1600px; margin: 0 auto; display: flex;
-    justify-content: space-between; align-items: center; padding: 0 40px;
+    width: 100%; 
+    padding: 0 50px; 
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Mantiene el logo a la izquierda */
+    position: relative; /* Necesario para el centrado absoluto del menú */
 }
-.logo { font-family: var(--fuente-titulos); font-size: 2.2rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; }
 
-ul.nav-links { display: flex; gap: 40px; }
+.logo { 
+    font-family: var(--fuente-titulos); 
+    font-size: 2rem; 
+    font-weight: 800; 
+    letter-spacing: 3px; 
+    text-transform: uppercase; 
+    z-index: 2; /* Aseguramos que el logo esté por encima si se cruza */
+}
+
+ul.nav-links { 
+    display: flex; 
+    gap: 35px;
+    align-items: center;
+    
+    /* TRUCO DE CENTRADO ABSOLUTO */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    z-index: 1;
+}
+
 .nav-links a {
-    font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px;
-    font-weight: 600; color: var(--color-negro); position: relative;
+    font-size: 0.85rem; 
+    text-transform: uppercase; 
+    letter-spacing: 2px;
+    font-weight: 700; 
+    color: var(--color-negro); 
+    position: relative;
+    padding: 5px 0;
 }
 .nav-links a:hover { color: var(--color-acento); }
 .nav-links a::after {
-    content: ''; display: block; width: 0; height: 1px;
-    background: var(--color-acento); transition: width 0.3s ease; margin-top: 3px;
+    content: ''; display: block; width: 0; height: 2px;
+    background: var(--color-acento); transition: width 0.3s ease; margin-top: 4px;
 }
 .nav-links a:hover::after { width: 100%; }
 
-.separator-elegant {
-    display: flex; align-items: center; justify-content: center;
-    margin: 60px auto 40px auto; width: 100%; max-width: 400px; opacity: 0.6;
-}
-.separator-elegant::before, .separator-elegant::after { content: ""; flex: 1; height: 1px; background: #ccc; }
-.separator-elegant i { padding: 0 20px; color: var(--color-acento); font-size: 1.2rem; }
+/* Ocultar hamburguesa en escritorio */
+.hamburger { display: none; }
 
+/* --- HERO Y SECCIONES --- */
 .hero { 
     height: 85vh; 
     background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=2070&auto=format&fit=crop') no-repeat center/cover; 
@@ -132,6 +125,13 @@ ul.nav-links { display: flex; gap: 40px; }
     text-align: center; color: white; margin-top: 0;
 }
 .hero-content h1 { font-family: var(--fuente-titulos); font-size: 4.5rem; margin-bottom: 10px; letter-spacing: 2px; font-weight: 700; text-shadow: 2px 2px 20px rgba(0,0,0,0.3); }
+
+.separator-elegant {
+    display: flex; align-items: center; justify-content: center;
+    margin: 60px auto 40px auto; width: 100%; max-width: 400px; opacity: 0.6;
+}
+.separator-elegant::before, .separator-elegant::after { content: ""; flex: 1; height: 1px; background: #ccc; }
+.separator-elegant i { padding: 0 20px; color: var(--color-acento); font-size: 1.2rem; }
 
 .page-hero { 
     height: 40vh; 
@@ -166,12 +166,8 @@ ul.nav-links { display: flex; gap: 40px; }
     border: 2px solid white; padding: 15px 30px; background: rgba(255,255,255,0.1); backdrop-filter: blur(2px);
 }
 
-/* SOBRE NOSOTROS (FONDO NEGRO / ZEBRA) */
 .bg-dark { 
-    background-color: var(--color-negro); 
-    width: 100%; 
-    color: white; 
-    padding: 80px 0;
+    background-color: var(--color-negro); width: 100%; color: white; padding: 80px 0;
 }
 .about-section { display: flex; align-items: center; gap: 60px; max-width: 1400px; margin: 0 auto; padding: 0 20px; }
 .about-text { flex: 1; }
@@ -184,14 +180,10 @@ ul.nav-links { display: flex; gap: 40px; }
 }
 .about-image img { width: 100%; height: 100%; object-fit: cover; border-radius: 2px; position: relative; z-index: 1; }
 
-/* VISÍTANOS (FONDO BLANCO / MAPA COLOR) */
 .visit-section-full { display: flex; height: 650px; width: 100%; margin-top: 0; }
 .visit-info-box { 
-    flex: 1; 
-    background-color: white; 
-    color: var(--color-negro); 
-    padding: 60px; 
-    display: flex; flex-direction: column; justify-content: center; 
+    flex: 1; background-color: white; color: var(--color-negro); 
+    padding: 60px; display: flex; flex-direction: column; justify-content: center; 
     border-right: 1px solid #eee;
 }
 .visit-info-box h2 { font-family: var(--fuente-titulos); font-size: 3rem; margin-bottom: 40px; font-weight: 700; color: var(--color-negro); }
@@ -213,7 +205,6 @@ ul.nav-links { display: flex; gap: 40px; }
 }
 .btn-call:hover { background: var(--color-negro); color: white; }
 
-/* MAPA SIEMPRE A COLOR */
 .map-container { flex: 1.2; position: relative; filter: none; }
 .map-container iframe { width: 100%; height: 100%; border: 0; }
 
@@ -264,13 +255,7 @@ ul.nav-links { display: flex; gap: 40px; }
 .btn-cookie-deny { background-color: transparent; color: #bbb; border: 1px solid #555; padding: 12px 25px; font-weight: 700; cursor: pointer; text-transform: uppercase; border-radius: 4px; transition: 0.3s; }
 .btn-cookie-accept:hover { background-color: #fff; color: #111; }
 
-footer { 
-    background-color: #111; 
-    color: #fff; 
-    padding: 80px 0 30px; 
-    margin-top: 0; 
-    border-top: 1px solid #222; 
-}
+footer { background-color: #111; color: #fff; padding: 80px 0 30px; margin-top: 0; border-top: 1px solid #222; }
 .footer-container { max-width: 1400px; margin: 0 auto; padding: 0 40px; display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 60px; }
 .footer-section h3 { font-family: var(--fuente-titulos); font-size: 1.1rem; margin-bottom: 30px; letter-spacing: 2px; text-transform: uppercase; color: var(--color-acento); font-weight: 700; }
 .footer-brand p { color: #999; font-size: 0.95rem; line-height: 1.8; margin-bottom: 25px; max-width: 350px;}
@@ -287,11 +272,32 @@ footer {
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 @keyframes slideIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 
+/* --- RESPONSIVE (MÓVIL Y TABLET) --- */
 @media (max-width: 1024px) {
-    /* EN MÓVIL RECUPERAMOS EL CURSOR NORMAL PARA EVITAR BUGS */
     body, a, button, input { cursor: auto !important; }
     .cursor-dot, .cursor-outline { display: none; }
     
+    .navbar { padding: 0 20px; justify-content: space-between; }
+    
+    .hamburger { display: block; cursor: pointer; z-index: 2000; }
+    .bar { display: block; width: 25px; height: 3px; margin: 5px auto; transition: 0.3s; background-color: var(--color-negro); }
+
+    .nav-links {
+        /* Restablecer valores para el menú móvil */
+        position: fixed; left: -100%; top: 0; 
+        flex-direction: column; margin: 0;
+        background-color: white; width: 100%; height: 100vh;
+        text-align: center; transition: 0.4s ease; padding-top: 120px;
+        box-shadow: none; z-index: 1500; 
+        display: flex; gap: 20px;
+        transform: none; /* MUY IMPORTANTE: Quitar el centrado de escritorio */
+    }
+    .nav-links.active { left: 0; }
+    .nav-links a { font-size: 1.2rem; }
+    .hamburger.active .bar:nth-child(2) { opacity: 0; }
+    .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
     .categories-grid { grid-template-columns: 1fr 1fr; }
     .about-section, .visit-section-full { flex-direction: column; height: auto; }
     .about-image, .map-container { height: 400px; width: 100%; }
@@ -300,20 +306,5 @@ footer {
     .footer-contact p, .footer-socials { justify-content: center; }
     .footer-brand p { margin: 0 auto 25px auto; }
     .footer-bottom { flex-direction: column; gap: 15px; }
-    
-    .hamburger { display: block; cursor: pointer; z-index: 2000; }
-    .bar { display: block; width: 25px; height: 3px; margin: 5px auto; transition: 0.3s; background-color: var(--color-negro); }
-    .nav-links {
-        position: fixed; left: -100%; top: 0; flex-direction: column;
-        background-color: white; width: 100%; height: 100vh;
-        text-align: center; transition: 0.4s ease; padding-top: 120px;
-        box-shadow: none; z-index: 1500; display: flex;
-    }
-    .nav-links.active { left: 0; }
-    .nav-links li { margin: 20px 0; }
-    .nav-links a { font-size: 1.2rem; }
-    .hamburger.active .bar:nth-child(2) { opacity: 0; }
-    .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-    .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 }
 @media (max-width: 600px) { .categories-grid { grid-template-columns: 1fr; } .hero-content h1 { font-size: 3rem; }}
