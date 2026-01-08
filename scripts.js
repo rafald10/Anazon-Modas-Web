@@ -47,27 +47,30 @@ document.addEventListener("DOMContentLoaded", function() {
     /* =========================================
        1. MENÚ MÓVIL (CORREGIDO)
        ========================================= */
+
     const hamburger = document.querySelector(".hamburger");
     const navMenu = document.querySelector(".nav-links");
-    const navLinks = document.querySelectorAll(".nav-links a"); // Todos los enlaces del menú
+    const navLinks = document.querySelectorAll(".nav-links a");
 
-    // A. Abrir/Cerrar al tocar el icono de hamburguesa
     if (hamburger && navMenu) {
+        // A. Abrir/Cerrar menú
         hamburger.addEventListener("click", () => {
             hamburger.classList.toggle("active");
             navMenu.classList.toggle("active");
+            
+            // Bloquear/Desbloquear scroll del fondo
+            document.body.classList.toggle("no-scroll");
+        });
+
+        // B. Cerrar menú al hacer clic en un enlace
+        navLinks.forEach(link => {
+            link.addEventListener("click", () => {
+                hamburger.classList.remove("active");
+                navMenu.classList.remove("active");
+                document.body.classList.remove("no-scroll");
+            });
         });
     }
-
-    // B. Cerrar menú automáticamente al tocar una opción
-    navLinks.forEach(link => {
-        link.addEventListener("click", () => {
-            if (hamburger && navMenu) {
-                hamburger.classList.remove("active"); // Vuelve a las 3 rayas
-                navMenu.classList.remove("active");   // Cierra el menú deslizante
-            }
-        });
-    });
 
     /* =========================================
        2. NAVBAR SCROLL (Efecto cristal al bajar)
